@@ -1,0 +1,83 @@
+<script> 
+function run() {
+var command = document.getElementById("com").value
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "http://192.168.56.230/cgi-bin/a.py?command=" +command , true)
+xhr.send()
+xhr.onload = function() {
+var out = xhr.responseText;
+document.getElementById("out").innerHTML = out;
+}
+}
+</script>
+
+<html>
+<body> 
+
+
+
+<div class=enter style="text-align:center;"><b><h2>Enter your command </h2></b></div>
+</br>
+
+<div style="text-align:center;"> [root@localhost ~]# 
+<input id='com' type='text' size="35"> 
+
+</div>
+</br>
+
+<div style="text-align:center;"> 
+<b><button onclick="run()" class="button"> RUN </button><b>
+</div>
+</br>
+
+<div class='op' style="text-align:center;"> <h2>Output</h2> </div>
+<pre> <div class="myDiv" id='out'> </div> </pre>
+
+</body>
+</html>
+
+<style> 
+body {
+background-color: #afeeee;
+background-image: url("https://images.prismic.io/amazeeio/30bf038a-ca32-45c1-8b73-e3c4fd4622d0_Teaser-Infographic-FA2.gif?auto=compress%2Cformat");
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: cover;
+
+}
+
+.myDiv{
+background-color: lightblue;
+background-repeat: no-repeat;
+width: 700;
+height:300; 
+margin: 0 auto;
+border: 5px solid black;
+}
+
+.img1{
+position:absolute;
+top: 0;
+right: 50px;
+}
+
+input{
+background-color: lightyellow;
+}
+
+button{
+background-color: skyblue;
+position: center;
+border: 2px solid black;
+box-shadow:0 4px 8px 0 black, 0 4px 8px 0 black;
+width:100px;
+height:25px;
+size:35px;
+}
+
+.header{
+color: 800000;
+}
+
+
+</style>
