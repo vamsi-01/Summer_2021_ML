@@ -1,0 +1,78 @@
+<html>
+<center><h1 style="color:black;"> Welcome to MiniDocker World...!!!!</h1></center>
+<br>
+<center><h3>you can enter Any docker command here 🐋🐋🐋</h3></center>
+<div>
+	<div id="screen">
+	 <div id="userInput">
+		 <input id="label" type="text" value="WebApp@Docker $$ >>>" size="20" readonly="readonly">
+		 <input  type="text" id="cmdBox"  placeholder="Enter Your Command" size="40" autofocus >
+		 <button onclick="docker()">....Run....</button>
+	 </div>
+	 <pre>
+	 <div id="input"></div>
+	 </pre>
+	</div>
+</div>
+</html>
+
+<style>
+ body{
+        background-image: url("docker_gif.gif");
+        background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size:100% 100%; }
+#userInput{
+    text-align: center;
+    color:blue;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: fantasy;}
+#label{
+	text-align: center;
+	color:blue;
+	font-size: 20px;
+	font-weight: bold;	
+
+}
+
+#cmdBox{
+    background-color: #22011996;
+    text-align: center;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: 'Courier New';}
+#input{
+   text-align: center;
+   font-size: 15px;
+   color:white ;
+   position:absolute;
+   top:350px;
+   left:200px;
+   right:100px;
+   line-height:2;
+   padding: 15px 12px;
+   font-weight: bold;
+}
+
+</style>
+
+<script>
+	function docker(){
+			document.getElementById('input').innerHTML = "";
+			var i = document.getElementById("cmdBox").value;
+			var xhr = new XMLHttpRequest();
+			xhr.open("GET" , "http://192.168.73.230/cgi-bin/docker_task.py?x=" + i, false);
+			xhr.send();
+			var output = xhr.responseText;
+			document.getElementById("input").innerHTML = output;
+			
+			document.getElementById('cmdBox').value="";
+
+
+		}	   	 
+</script>
+
+
+
